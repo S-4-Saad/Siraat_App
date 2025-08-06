@@ -1,22 +1,20 @@
 import 'package:flutter/material.dart';
-import 'package:siraat/Themes/app_colors.dart';
 import 'package:siraat/buttons/google_btn.dart';
+import 'package:siraat/pages/auth/signup_screen.dart';
 
-import 'login_page.dart';
+import '../../Themes/app_colors.dart';
 
-class SignupScreen extends StatefulWidget {
-  const SignupScreen({super.key});
+class LoginScreen extends StatefulWidget {
+  const LoginScreen({super.key});
 
   @override
-  State<SignupScreen> createState() => _SignupScreenState();
+  State<LoginScreen> createState() => _LoginScreenState();
 }
 
-class _SignupScreenState extends State<SignupScreen> {
+class _LoginScreenState extends State<LoginScreen> {
   final _formKey = GlobalKey<FormState>();
   String? email;
   String? password;
-  String? name;
-  String? phone;
   bool _isChecked = false;
   @override
   Widget build(BuildContext context) {
@@ -24,16 +22,15 @@ class _SignupScreenState extends State<SignupScreen> {
       body: SingleChildScrollView(
         child: Center(
           child: Column(
-            mainAxisAlignment: MainAxisAlignment.center,
             children: [
               SizedBox(height: 100),
               Image.asset('assets/images/logo.png'),
               SizedBox(height: 10),
               Text(
-                "Sign Up",
+                "Login",
                 style: TextStyle(fontSize: 36, fontWeight: FontWeight.w400),
               ),
-              SizedBox(height: 10),
+              SizedBox(height: 20),
               Padding(
                 padding: const EdgeInsets.only(left: 28.0, right: 28.0),
                 child: Form(
@@ -42,31 +39,11 @@ class _SignupScreenState extends State<SignupScreen> {
                     children: [
                       TextFormField(
                         decoration: InputDecoration(
-                          prefixIcon: Icon(
-                            Icons.person,
-                            color: AppColors.darkgreen,
-                          ),
-                          label: Text("Name"),
-                          border: OutlineInputBorder(),
-                        ),
-                        validator: (value) {
-                          if (value!.isEmpty) {
-                            return "Please enter your name";
-                          }
-                          return null;
-                        },
-                        onSaved: (value) {
-                          name = value;
-                        },
-                      ),
-                      SizedBox(height: 10),
-                      TextFormField(
-                        decoration: InputDecoration(
+                          labelText: "Email",
                           prefixIcon: Icon(
                             Icons.email,
                             color: AppColors.darkgreen,
                           ),
-                          labelText: "Email",
                           border: OutlineInputBorder(),
                         ),
                         validator: (value) {
@@ -82,11 +59,11 @@ class _SignupScreenState extends State<SignupScreen> {
                       SizedBox(height: 10),
                       TextFormField(
                         decoration: InputDecoration(
+                          labelText: "Password",
                           prefixIcon: Icon(
                             Icons.password,
                             color: AppColors.darkgreen,
                           ),
-                          labelText: "Password",
                           border: OutlineInputBorder(),
                         ),
                         obscureText: true,
@@ -101,25 +78,16 @@ class _SignupScreenState extends State<SignupScreen> {
                           password = value;
                         },
                       ),
-                      SizedBox(height: 10),
-                      TextFormField(
-                        decoration: InputDecoration(
-                          labelText: "Phone",
-                          prefixIcon: Icon(
-                            Icons.phone,
-                            color: AppColors.darkgreen,
+                      SizedBox(height: 4),
+                      Align(
+                        alignment: Alignment.bottomRight,
+                        child: GestureDetector(
+                          onTap: () {},
+                          child: Text(
+                            "Forgot Password?",
+                            style: TextStyle(color: AppColors.darkgreen),
                           ),
-                          border: OutlineInputBorder(),
                         ),
-                        validator: (value) {
-                          if (value!.isEmpty) {
-                            return "Please enter your phone number";
-                          }
-                          return null;
-                        },
-                        onSaved: (value) {
-                          phone = value;
-                        },
                       ),
                       SizedBox(height: 20),
                       SizedBox(
@@ -130,7 +98,7 @@ class _SignupScreenState extends State<SignupScreen> {
                             foregroundColor: Colors.white,
                           ),
                           onPressed: () {},
-                          child: Text("Sign Up"),
+                          child: Text("Sign in"),
                         ),
                       ),
                       SizedBox(height: 10),
@@ -139,24 +107,23 @@ class _SignupScreenState extends State<SignupScreen> {
                           Navigator.push(
                             context,
                             MaterialPageRoute(
-                              builder: (context) => LoginScreen(),
+                              builder: (context) => SignupScreen(),
                             ),
                           );
                         },
                         child: Text.rich(
                           TextSpan(
-                            text: "Already have an account? ",
+                            text: "Don't have an account? ",
                             children: [
                               TextSpan(
-                                text: "Login",
+                                text: "Register",
                                 style: TextStyle(color: AppColors.darkgreen),
-
                               ),
                             ],
                           ),
                         ),
                       ),
-                      SizedBox(height: 2),
+                      SizedBox(height: 10),
                       Row(
                         children: [
                           Checkbox(
@@ -174,9 +141,8 @@ class _SignupScreenState extends State<SignupScreen> {
                         ],
                       ),
                       SizedBox(height: 10),
-                     GoogleBtn(onPressed: (){
-
-                     },),
+                      GoogleBtn(onPressed: (){})
+        
                     ],
                   ),
                 ),

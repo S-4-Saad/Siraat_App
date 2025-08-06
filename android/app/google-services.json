@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "366540674103",
+    "project_id": "siraat-app",
+    "storage_bucket": "siraat-app.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:366540674103:android:dc15e2755f1f55508f9bb2",
+        "android_client_info": {
+          "package_name": "com.example.siraat"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyASwSiDGTkPhqPddMIRGI4Cvss4lOn38N4"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
