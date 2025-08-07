@@ -1,22 +1,20 @@
 import 'package:flutter/material.dart';
-import 'package:siraat/sections/home_section.dart';
-import 'package:siraat/sections/top_card.dart';
+import 'package:flutter_qiblah/flutter_qiblah.dart';
 import '../buttons/floatingaction.dart';
 import '../sections/bottomnavigation.dart';
-import '../sections/prayer_dashboard.dart';
+import '../sections/qibla_section.dart';
+import '../sections/top_card.dart';
 
-class MyHomePage extends StatefulWidget {
-  const MyHomePage({super.key});
+class QiblaPage extends StatefulWidget {
+  const QiblaPage({super.key});
 
   @override
-  State<MyHomePage> createState() => _MyHomePageState();
+  State<QiblaPage> createState() => _QiblaPageState();
 }
 
-class _MyHomePageState extends State<MyHomePage> {
-  Set<int> selectedIndexes = {}; // ✅ Multi-selection support
+class _QiblaPageState extends State<QiblaPage> {
   @override
   Widget build(BuildContext context) {
-
     return Scaffold(
       body: SingleChildScrollView(
         child: Padding(
@@ -26,9 +24,12 @@ class _MyHomePageState extends State<MyHomePage> {
               const SizedBox(height: 30),
               TopCard(),
               const SizedBox(height: 20),
+              SizedBox(
+                height: 300,
+                child: QiblahCompassWidget(),
+              ),
 
-              PrayerSection(),
-              HomeSection(),
+
             ],
 
           ),
@@ -41,3 +42,4 @@ class _MyHomePageState extends State<MyHomePage> {
     );
   }
 }
+
